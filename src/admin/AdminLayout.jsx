@@ -25,16 +25,16 @@ export default function AdminLayout({ children }) {
       <aside className="admin-sidebar">
        <div className="admin-logo" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '5px' }}>
           <img 
-            src="/kb_logo_M.png" 
-            alt="KB Collection" 
+            src="/kpbm_logo.PNG"  
+            alt="KPBM Admin" 
             style={{ 
               height: '50px', 
               objectFit: 'contain', 
               marginBottom: '5px',
-              marginLeft: '-5px' // Pequeño ajuste visual
+              marginLeft: '-5px' 
             }} 
           />
-          <span className="admin-logo-sub" style={{ color:'#fbbf24', fontSize: '0.75rem', opacity: 0.6, letterSpacing: '1px' }}>
+          <span className="admin-logo-sub" style={{ color:'#FFD54F', fontSize: '0.75rem', opacity: 0.8, letterSpacing: '1px' }}>
               {usuario?.role === "SUPER_ADMIN" ? "PANEL SUPER ADMIN" : "PANEL ADMINISTRATIVO"}
           </span>
         </div>

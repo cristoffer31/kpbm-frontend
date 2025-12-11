@@ -1,10 +1,10 @@
 .footer {
-  /* CORRECCIÓN: Usamos el mismo degradado azul de tu Navbar */
-  background: linear-gradient(90deg, #0094ff 0%, #2563eb 100%);
+  /* Degradado Fucsia */
+  background: linear-gradient(90deg, #C2185B 0%, #E91E63 100%);
   color: white;
   padding: 60px 0 20px;
-  margin-top: auto; /* Empuja el footer al fondo */
-  box-shadow: 0 -4px 20px rgba(0,0,0,0.1); /* Sombra suave arriba */
+  margin-top: auto;
+  box-shadow: 0 -4px 20px rgba(194, 24, 91, 0.15);
 }
 
 .footer-inner {
@@ -20,14 +20,13 @@
 /* LOGO */
 .footer-logo { 
   font-size: 1.8rem; 
-  color: white; 
+  color: #FFD54F; /* Dorado */
   margin-bottom: 15px; 
   font-weight: 800; 
   letter-spacing: 1px;
 }
-.footer-logo span { 
-  color: #e0f2fe; /* Azul muy clarito para contrastar */
-}
+.footer-logo span { color: white; }
+
 .footer-copy { 
   font-size: 0.9rem; 
   margin-top: 15px; 
@@ -37,7 +36,7 @@
 
 /* COLUMNAS */
 .footer-col h4 { 
-  color: white; 
+  color: #FFD54F; /* Títulos dorados */
   margin-bottom: 20px; 
   font-size: 1.1rem; 
   font-weight: 700;
@@ -55,9 +54,8 @@
 }
 
 .footer-col a:hover { 
-  color: white; 
+  color: #FFD54F; 
   transform: translateX(5px); 
-  text-shadow: 0 0 8px rgba(255,255,255,0.4);
 }
 
 .footer-col p {
@@ -69,29 +67,36 @@
 /* REDES SOCIALES */
 .footer-socials { 
   display: flex; 
-  gap: 25px; 
-   
-  margin-top: 10px;
-}
-.footer-socials a { 
-  color: white; 
-  opacity: 0.9;
-  font-size: 2.2rem;
-  transition: 0.2s;
-}
-.footer-socials a:hover { 
-  opacity: 1; 
-  transform: translateY(-5px) scale(1.1); 
-  filter: drop-shadow(0 0 8px rgba(255,255,255,0.6));
+  gap: 30px; 
+  margin-top: 20px;
+  align-items: center;
 }
 
-/* BARRA INFERIOR */
+.footer-socials a { 
+  color: white; 
+  font-size: 3rem;
+  opacity: 0.9;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+}
+
+.footer-socials a:hover { 
+  opacity: 1; 
+  transform: translateY(-8px) scale(1.2); 
+  filter: drop-shadow(0 10px 15px rgba(255, 213, 79, 0.6)); /* Brillo dorado */
+  color: #FFD54F;
+}
+
 .footer-bottom {
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.3); /* Línea blanca semitransparente */
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   padding-top: 20px;
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.8);
   font-weight: 500;
 }
 

@@ -1,4 +1,3 @@
-// src/pages/Login.jsx
 import React, { useState, useContext } from "react";
 import "./Auth.css";
 import { AuthContext } from "../context/AuthContext";
@@ -21,20 +20,22 @@ export default function Login() {
       navigate("/");
     } catch (err) {
       console.error(err);
-      
       if (err.response && err.response.data && err.response.data.error) {
         setError(err.response.data.error);
       } else {
         setError("Error al iniciar sesión. Intenta de nuevo.");
       }
     }
-  } 
+  }
 
   return (
     <div className="auth-page">
       <div className="auth-card">
-        <h2>Iniciar sesión</h2>
-        <p>Ingresa con tu cuenta de KB COLLECTION</p>
+        {/* LOGO KPBM */}
+        <img src="/kpbm_logo.PNG" alt="KPBM" className="auth-logo" />
+        
+        <h2>¡Hola de nuevo!</h2>
+        <p>Inicia sesión para gestionar tus pedidos</p>
 
         {error && <div className="auth-error">{error}</div>}
 
@@ -58,16 +59,19 @@ export default function Login() {
           />
 
           <button type="submit" className="auth-btn">
-            Entrar
+            Ingresar
           </button>
         </form>
         
-        <div style={{marginTop:'15px', textAlign:'center', fontSize:'0.9rem'}}>
-           <Link to="/recuperar" style={{color:'#64748b', textDecoration:'none'}}>¿Olvidaste tu contraseña?</Link>
+        <div style={{marginTop:'20px', textAlign:'center', fontSize:'0.9rem'}}>
+           <Link to="/recuperar" style={{color:'#AD1457', textDecoration:'none', fontWeight:'500'}}>
+             ¿Olvidaste tu contraseña?
+           </Link>
         </div>
 
         <p className="auth-footer-text">
-          ¿No tienes cuenta? <Link to="/register">Regístrate aquí</Link>
+          ¿No tienes cuenta? 
+          <Link to="/register">Regístrate aquí</Link>
         </p>
       </div>
     </div>

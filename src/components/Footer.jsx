@@ -21,14 +21,14 @@ export default function Footer() {
         {/* COLUMNA 1: LOGO */}
         <div className="footer-col">
           <h3 className="footer-logo">
-            {config?.nombreTienda ? config.nombreTienda.toUpperCase() : "KB COLLECTION"}
+            {config?.nombreTienda ? config.nombreTienda.toUpperCase() : "KPBM"}
           </h3>
           <p>
             Tienda en línea especializada en higiene, estilo y productos
             personales de calidad premium.
           </p>
           <p className="footer-copy">
-            © {year} {config?.nombreTienda || "KB COLLECTION"}. Todos los derechos reservados.
+            © {year} {config?.nombreTienda || "KPBM"}. Todos los derechos reservados.
           </p>
         </div>
 
@@ -104,7 +104,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <span>Desarrollado con ❤️ por {config?.nombreTienda || "KB COLLECTION"}</span>
+        <span>Desarrollado con ❤️ por {config?.nombreTienda || "KPBM"}</span>
       </div>
     </footer>
   );

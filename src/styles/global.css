@@ -12,7 +12,7 @@ body {
 
 /* CONTENEDOR PRINCIPAL */
 .app-main {
-  padding-top: 180px !important; /* Espacio suficiente para que no se pegue */
+  padding-top: 180px !important;
   min-height: 85vh;
   padding-bottom: 60px;
   width: 100%;
@@ -27,9 +27,9 @@ body {
   }
 }
 
-/* Botones */
+/* Botones - KPBM Style (Fucsia) */
 .btn-primary {
-  background: linear-gradient(135deg, #0061ff, #004aad);
+  background: linear-gradient(135deg, #D81B60, #AD1457);
   color: white;
   padding: 10px 24px;
   border-radius: 50px;
@@ -37,14 +37,14 @@ body {
   cursor: pointer;
   font-weight: 600;
   transition: 0.3s;
-  box-shadow: 0 4px 12px rgba(0, 97, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(216, 27, 96, 0.3);
 }
-.btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+.btn-primary:hover { transform: translateY(-2px); opacity: 0.95; }
 
 .section-title {
   font-size: 2rem;
   font-weight: 800;
   margin: 50px 0 30px;
   text-align: center;
-  color: #1e293b;
+  color: #880E4F; /* Título oscuro fucsia */
 }

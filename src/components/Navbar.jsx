@@ -86,12 +86,12 @@ function Navbar() {
   return (
     <header className="navbar-container">
       <div className="topbar">
-        Envíos rápidos • Productos premium de higiene y estilo
+        Envíos rápidos • Productos cosmeticos premium
       </div>
 
       <nav className="navbar">
         <Link className="navbar-logo" to="/">
-          <img src="/kb_logo_M.png" alt="KB Collection" className="navbar-logo-img" />
+          <img src="/kpbm_logo.PNG" alt="KPBM" className="navbar-logo-img" />
         </Link>
 
         <div className="navbar-search" ref={searchRef}>

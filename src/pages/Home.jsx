@@ -16,7 +16,6 @@ export default function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // 1. Cargar Productos
     listarProductos()
       .then((data) => {
         const lista = data.content || (Array.isArray(data) ? data : []);
@@ -24,12 +23,10 @@ export default function Home() {
       })
       .catch(() => setProductos([]));
 
-    // 2. Cargar Ofertas
     listarOfertas()
       .then((data) => setOfertas(data || []))
       .catch(() => setOfertas([]));
 
-    // 3. Cargar Categorías
     listarCategorias()
       .then((data) => setCategorias(data || []))
       .catch(() => setCategorias([]));
@@ -40,27 +37,33 @@ export default function Home() {
   return (
     <div className="home-wrapper">
       
-      {/* 1. HERO (Portada Principal) */}
+      {/* 1. HERO KPBM (Estructura Clásica) */}
       <section className="home-hero">
         <div className="container home-hero-inner">
           <div className="home-hero-left">
-            <div style={{ margin: "20px 0" }}>
+            <span style={{textTransform:'uppercase', letterSpacing:'2px', fontSize:'0.85rem', color:'#FFD54F', fontWeight:'bold'}}>
+              Tienda Oficial
+            </span>
+            
+            {/* LOGO KPBM */}
+            <div style={{ margin: "10px 0 20px 0" }}>
               <img 
-                src="/kb_logo_M.png" 
-                alt="KB Collection" 
+                src="/kpbm_logo.PNG" 
+                alt="KPBM" 
                 style={{ 
-                  maxWidth: "450px", 
-                  width: "100%",     
+                  maxWidth: "350px", 
+                  width: "100%", 
                   height: "auto",
                   filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.3))" 
                 }} 
               />
             </div>
-            <p>Encuentra los mejores productos de higiene y cuidado personal. Precios especiales por mayoreo y envios accesibles.</p>
+            
+            <p>Descubre nuestra selección exclusiva de productos. Calidad garantizada para tu negocio y familia.</p>
             
             <div className="hero-actions">
               <button className="btn-primary" onClick={() => navigate("/productos")} style={{padding:'14px 32px', fontSize:'1.1rem'}}>
-                Comprar Ahora
+                Ver Catalogo
               </button>
             </div>
           </div>
@@ -69,7 +72,7 @@ export default function Home() {
              <div className="hero-info-cards">
                 <div className="info-card">
                     <h3>🚀 Envíos Rápidos</h3>
-                    <p>Contamos con envios en zonas seleccionadas</p>
+                    <p>Contamos con envíos en zonas seleccionadas</p>
                 </div>
                 <div className="info-card">
                     <h3>📦 Precios Mayoreo</h3>
@@ -90,17 +93,13 @@ export default function Home() {
 
       <div className="container">
         
-    
-      {/* 2. CATEGORÍAS */}
-      <section className="categories-section">
-        <div className="container">
-            <h2 className="section-title">Explora por Categoría</h2>
+        {/* 2. CATEGORÍAS */}
+        <section className="categories-section">
+            <h2 className="section-title-center" style={{color:'#880E4F'}}>Explora por Categoría</h2>
             
             <div className="categories-grid">
                 {categorias.map(cat => (
                     <div key={cat.id} className="category-card-modern" onClick={() => navigate(`/productos?cat=${cat.id}`)}>
-                        
-                        {/* SI TIENE IMAGEN, LA MOSTRAMOS. SI NO, USAMOS EL ICONO DE LETRA */}
                         {cat.imagenUrl ? (
                             <img 
                                 src={cat.imagenUrl} 
@@ -108,7 +107,7 @@ export default function Home() {
                                 style={{
                                     width:'80px', height:'80px', borderRadius:'50%', 
                                     objectFit:'cover', marginBottom:'15px',
-                                    border:'3px solid #e0f2fe'
+                                    border:'3px solid #F8BBD0'
                                 }} 
                             />
                         ) : (
@@ -116,23 +115,20 @@ export default function Home() {
                                 {cat.nombre.charAt(0)}
                             </div>
                         )}
-
                         <h3>{cat.nombre}</h3>
                     </div>
                 ))}
             </div>
-        </div>
-      </section>
+        </section>
 
-        {/* 3. OFERTAS RELÁMPAGO (Diseño Destacado PRO con tamaño normal) */}
+        {/* 3. OFERTAS RELÁMPAGO */}
         {ofertas.length > 0 && (
             <section className="ofertas-section-pro">
-                <h2 className="section-title-center" style={{display:'flex', alignItems:'center', justifyContent:'center', gap:'10px', color:'#be123c'}}>
-                    <FaFire className="fire-icon-anim" style={{color:'#f43f5e'}} /> Ofertas Relámpago
+                <h2 className="section-title-center" style={{display:'flex', alignItems:'center', justifyContent:'center', gap:'10px', color:'#C2185B'}}>
+                    <FaFire className="fire-icon-anim" style={{color:'#D81B60'}} /> Ofertas Relámpago
                 </h2>
-                <p className="section-subtitle" style={{color:'#fda4af'}}>¡Precios increíbles por tiempo limitado!</p>
+                <p className="section-subtitle" style={{color:'#AD1457'}}>¡Precios increíbles por tiempo limitado!</p>
                 
-                {/* Usamos la nueva clase product-grid-normal */}
                 <div className="product-grid-normal">
                     {ofertas.map(p => (
                         <div key={p.id} onClick={() => setProductoSeleccionado(p)} style={{cursor:'pointer'}}>
@@ -143,7 +139,7 @@ export default function Home() {
             </section>
         )}
 
-        {/* 4. CARRUSEL (Banners) */}
+        {/* 4. CARRUSEL */}
         <div style={{margin: '60px 0'}}>
             <Carousel />
         </div>
@@ -151,15 +147,14 @@ export default function Home() {
         {/* 5. LO MÁS VENDIDO */}
         <section className="mas-vendido-section">
             <div className="section-header-flex">
-                <h2 style={{display:'flex', alignItems:'center', gap:'10px'}}>
-                    <FaStar style={{color:'#eab308'}} /> Lo Más Vendido
+                <h2 style={{display:'flex', alignItems:'center', gap:'10px', color:'#880E4F'}}>
+                    <FaStar style={{color:'#FFD54F'}} /> Lo Más Vendido
                 </h2>
                 <button className="link-ver-todo" onClick={() => navigate("/productos")}>
                     Ver catálogo completo →
                 </button>
             </div>
 
-            {/* Reusamos la misma clase de grid normal */}
             <div className="product-grid-normal">
                 {productosDisponibles.slice(0, 8).map(p => (
                     <div key={p.id} onClick={() => setProductoSeleccionado(p)} style={{cursor:'pointer'}}>
@@ -171,7 +166,6 @@ export default function Home() {
 
       </div>
 
-      {/* MODAL FLOTANTE */}
       {productoSeleccionado && (
         <ProductModal 
             producto={productoSeleccionado} 

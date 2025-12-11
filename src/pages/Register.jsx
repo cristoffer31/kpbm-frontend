@@ -1,4 +1,3 @@
-// src/pages/Register.jsx
 import React, { useState, useContext } from "react";
 import "./Auth.css";
 import { AuthContext } from "../context/AuthContext";
@@ -9,11 +8,11 @@ export default function Register() {
   const navigate = useNavigate();
 
   const [nombre, setNombre] = useState("");
+  const [telefono, setTelefono] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [ok, setOk] = useState("");
-  const [telefono, setTelefono] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -22,28 +21,14 @@ export default function Register() {
 
     try {
       await register(nombre, email, password, telefono);
-      setOk("Registro exitoso. Ahora puedes iniciar sesión.");
-      setTimeout(() => navigate("/login"), 1500);
+      setOk("¡Registro exitoso! Redirigiendo al login...");
+      setTimeout(() => navigate("/login"), 2000);
     } catch (err) {
       console.error("Error de registro:", err);
-
-      // --- LÓGICA PARA LEER EL ERROR REAL ---
-      if (err.response && err.response.data) {
-        // 1. Error personalizado del backend (ej: "El correo ya existe")
-        if (err.response.data.error) {
-            setError(err.response.data.error);
-        } 
-        // 2. Error de validación de Quarkus (ej: Contraseña corta)
-        else if (err.response.data.parameterViolations) {
-            const msg = err.response.data.parameterViolations[0].message;
-            setError(msg);
-        }
-        // 3. Otros errores
-        else {
-            setError("Datos inválidos. Revisa que el correo y contraseña sean correctos.");
-        }
+      if (err.response && err.response.data && err.response.data.error) {
+        setError(err.response.data.error);
       } else {
-        setError("No se pudo conectar con el servidor.");
+        setError("No se pudo completar el registro.");
       }
     }
   }
@@ -51,7 +36,11 @@ export default function Register() {
   return (
     <div className="auth-page">
       <div className="auth-card">
-        <h2>Crear cuenta</h2>
+        {/* LOGO KPBM */}
+        <img src="/kpbm_logo.PNG" alt="KPBM" className="auth-logo" />
+
+        <h2>Crear Cuenta</h2>
+        <p>Únete a la familia KPBM</p>
 
         {error && <div className="auth-error">{error}</div>}
         {ok && <div className="auth-ok">{ok}</div>}
@@ -66,6 +55,14 @@ export default function Register() {
           />
 
           <input
+            type="tel"
+            placeholder="Teléfono (Celular)"
+            required
+            value={telefono}
+            onChange={(e) => setTelefono(e.target.value)}
+          />
+
+          <input
             type="email"
             placeholder="Correo electrónico"
             autoComplete="email"
@@ -73,14 +70,6 @@ export default function Register() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-
-          <input 
-  type="text" 
-  placeholder="Teléfono" 
-  value={telefono} 
-  onChange={(e) => setTelefono(e.target.value)} 
-  required 
-/>
 
           <input
             type="password"
